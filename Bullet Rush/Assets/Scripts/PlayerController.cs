@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MyCharacterController
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] ScreenTouchController input;
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        var direction = new Vector3(input.Direction.x, 0, input.Direction.y);
+        Move(direction);
     }
 }
